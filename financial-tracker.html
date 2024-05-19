@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Tracker</title>
+    <link rel="stylesheet" href="./public/styles/styles.css" />
+    <script defer src="./public/js/scripts.js"></script>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/27b39b2da2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="top-header">
+      <div class="logo-container">
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E LOGO.png" alt="site-logo" />
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./financial-tracker.html">FINANCIAL TRACKER</a></li>
+          <li><a href="./credit-score.html">CREDIT SCORE</a></li>
+          <li><a href="./resources.html">RESOURCES</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+          <li><a href="./login.html">PROFILE</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-coins"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-building-columns"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Wave svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1440 250">
+      <path
+        fill="#023b58"
+        fill-opacity="1"
+        d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+      ></path>
+    </svg>
+
+    <!-- Main Body -->
+    <main>
+      <section class="section-container">
+        <div class="content-wrapper">
+          <h1 class="h1-title">LET'S BUDGET!!</h1>
+          <p class="budget-details">
+            Use our easy-to-navigate expense tracker and add your expenses and
+            income to learn how to better balance your funds.
+          </p>
+          <h2 class="h2-title left-colored-title">Transactions</h2>
+          <div class="transactions-container">
+            <div class="input-container">
+              <div class="category transactions">
+                <label for="selected-category">Category: </label>
+                <select id="selected-category" required>
+                  <option></option>
+                  <option value="income">Income</option>
+                  <option value="housing">Mortgage/Rent</option>
+                  <option value="utilities">Utilities</option>
+                  <option value="insurance">Insurance</option>
+                  <option value="food">Food/Drinks</option>
+                  <option value="transportation">Transportation</option>
+                  <option value="personal-care">Health/Wellness</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </div>
+
+              <!-- Date -->
+              <div class="transactions">
+                <label for="date">Date: </label>
+                <input type="date" id="date-input" required />
+
+                <!-- Amount -->
+                <label for="amount">Amount: </label>
+                <input
+                  type="number"
+                  id="amount-input"
+                  placeholder="$"
+                  required
+                />
+
+                <!-- Notes -->
+                <label for="notes">Note: </label>
+                <textarea
+                  type="text"
+                  id="note-input"
+                  placeholder="Add a Note"
+                  required
+                ></textarea>
+              </div>
+              <div class="done-btn">
+                <button id="add-transaction" class="btn add-btn">ADD</button>
+              </div>
+            </div>
+            <!-- Expenses List -->
+            <div class="expenses-list">
+              <h2 class="h2-title left-colored-title">Expenses</h2>
+              <table class="table">
+                <thead class="table-heading">
+                  <tr>
+                    <th>CATEGORY</th>
+                    <th>DATE</th>
+                    <th>AMOUNT</th>
+                    <th>NOTE</th>
+                    <th>EDIT</th>
+                    <th>DELETE</th>
+                  </tr>
+                </thead>
+                <tbody class="expense-table-body">
+                  <tr class="expenses-table-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="edit">
+                      <button class="btn btn-edit">EDIT</button>
+                    </td>
+                    <td class="delete">
+                      <button class="btn btn-delete">DELETE</button>
+                    </td>
+                  </tr>
+                  <tr class="expenses-table-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="edit">
+                      <button class="btn btn-edit">EDIT</button>
+                    </td>
+                    <td class="delete">
+                      <button class="btn btn-delete">DELETE</button>
+                    </td>
+                  </tr>
+                  <tr class="expenses-table-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="edit">
+                      <button class="btn btn-edit">EDIT</button>
+                    </td>
+                    <td class="delete">
+                      <button class="btn btn-delete">DELETE</button>
+                    </td>
+                  </tr>
+                  <tr class="expenses-table-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="edit">
+                      <button class="btn btn-edit">EDIT</button>
+                    </td>
+                    <td class="delete">
+                      <button class="btn btn-delete">DELETE</button>
+                    </td>
+                  </tr>
+                  <tr class="expenses-table-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="edit">
+                      <button class="btn btn-edit">EDIT</button>
+                    </td>
+                    <td class="delete">
+                      <button class="btn btn-delete">DELETE</button>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr class="total-container">
+                    <td class="total">TOTAL:</td>
+                    <td id="total-amount"></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <section class="footer-container">
+        <div class="social-media">
+          <a href="./contact.html">
+            <h2 class="footer-h2-title">LET'S CONNECT!</h2>
+          </a>
+          <ul class="footer-links">
+            <li>
+              <a href="https://github.com/Npcodes1" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nicolepayneswe/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:nicole1rock@gmail.com"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="back-to-top">
+          <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>
+        </div>
+        <div class="copyright-wrapper">
+          <span id="copyright"></span>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>

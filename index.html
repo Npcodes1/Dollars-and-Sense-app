@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link rel="stylesheet" href="./public/styles/styles.css" />
+    <script defer src="./public/js/scripts.js"></script>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/27b39b2da2.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- To add chart.js from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <header class="top-header">
+      <div class="logo-container">
+        <a href="./index.html">
+          <img src="./public/images/DOLLAR$ & $EN$E LOGO.png" alt="site-logo" />
+        </a>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="./financial-tracker.html">FINANCIAL TRACKER</a></li>
+          <li><a href="./credit-score.html">CREDIT SCORE</a></li>
+          <li><a href="./resources.html">RESOURCES</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
+          <li><a href="./login.html">PROFILE</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Bottom Navigation Bar -->
+    <header class="bottom-header">
+      <nav class="navbar-bottom">
+        <a href="./index.html" class="nav-links-bottom">
+          <i class="fa-solid fa-house"></i>
+          <span class="nav-text">Home</span>
+        </a>
+        <a href="./financial-tracker.html" class="nav-links-bottom">
+          <i class="fa-solid fa-coins"></i>
+          <span class="nav-text">Financial Tracker</span>
+        </a>
+        <a href="./credit-score.html" class="nav-links-bottom">
+          <i class="fa-solid fa-building-columns"></i>
+          <span class="nav-text">Credit Score</span>
+        </a>
+        <a href="./resources.html" class="nav-links-bottom">
+          <i class="fa-solid fa-book"></i>
+          <span class="nav-text">Resources</span>
+        </a>
+        <a href="./login.html" class="nav-links-bottom">
+          <i class="fa-solid fa-user"></i>
+          <span class="nav-text">Profile</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Wave svg -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 1440 250">
+      <path
+        fill="#023b58"
+        fill-opacity="1"
+        d="M0,64L80,58.7C160,53,320,43,480,69.3C640,96,800,160,960,181.3C1120,203,1280,181,1360,170.7L1440,160L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+      ></path>
+    </svg>
+
+    <!-- Main Body -->
+    <main>
+      <section class="section-container">
+        <div class="content-wrapper">
+          <h1 class="h1-title">DOLLAR$ & $EN$E</h1>
+          <p>
+            Welcome to DOLLAR$ & $EN$E- a housing financial tracker aimed
+            specifically for helping you make sense of where your dollars are
+            going and where they need to be! Learn more about managing your
+            money in a efficient way to save for a down-payment on a house!
+          </p>
+          <p>Did you know???</p>
+          <ul>
+            <li>
+              Due to several factors, such as economy, location, race/gender,
+              interest rates, jobs, and supply and demand, the housing market
+              has made it near impossible for some people to buy a house on
+              their own.
+            </li>
+            <li>
+              In general, about 81% of home buyers are Caucasian, 7%
+              Hispanic/Latinx, 7% Black/African American, 6% Asian/Pacific
+              Islander, and 6% identified as some other race.
+              <!--Information source link -->
+              [<a
+                href="https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers"
+                target="_blank"
+                >1</a
+              >]
+            </li>
+            <li>
+              The median age of first time-home buyers was 33 years old in 2021.
+            </li>
+            <li>Now that age has risen to 36 years old.</li>
+          </ul>
+          <!--To add the pie chart to the page. It's wrapped in a div container for responsiveness. -->
+          <div class="pie-container">
+            <canvas id="pieChart"></canvas>
+          </div>
+          <p>
+            Our goal is aimed to providing helpful resources that will aid
+            first-time minority buyers learn financial literacy for when it
+            comes time for them to start looking for houses.
+          </p>
+          <p>
+            Start your journey today by taking the quiz below to see if this
+            website is for you!
+          </p>
+          <hr />
+
+          <!-- Quiz -->
+          <h3 class="h3-title">WONDERING IF THIS SITE IS FOR YOU?</h3>
+          <h4 class="h4-title">TAKE THE QUIZ AND FIND OUT!</h4>
+          <form class="form" onsubmit="return false">
+            <div class="form-questions-wrapper">
+              <ol>
+                <li>
+                  Are you a minority that wants to buy a house someday?
+                  <div class="quiz-content">
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question1"
+                      value="yes"
+                      required
+                    />
+                    <label>Yes</label>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question1"
+                      value="no"
+                      required
+                    />
+                    <label>No</label>
+                  </div>
+                </li>
+                <li>
+                  Can you currently afford to buy a house?
+                  <div class="quiz-content">
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question2"
+                      value="yes"
+                      required
+                    />
+                    <label>Yes</label>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question2"
+                      value="no"
+                      required
+                    />
+                    <label>No</label>
+                  </div>
+                </li>
+                <li>
+                  Are you struggling with budgeting and saving?
+                  <div class="quiz-content">
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question3"
+                      value="yes"
+                      required
+                    />
+                    <label>Yes</label>
+                    <input
+                      type="radio"
+                      class="answer"
+                      name="question3"
+                      value="no"
+                      required
+                    />
+                    <label>No</label>
+                  </div>
+                </li>
+              </ol>
+              <!-- Submit Button -->
+              <div class="form-submit-quiz">
+                <button class="form-btn btn" type="submit">Submit</button>
+                <button class="form-btn clear-btn btn" type="submit">
+                  Clear
+                </button>
+              </div>
+              <p id="quiz-results"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <section class="footer-container">
+        <div class="social-media">
+          <a href="./contact.html">
+            <h2 class="footer-h2-title">LET'S CONNECT!</h2>
+          </a>
+          <ul class="footer-links">
+            <li>
+              <a href="https://github.com/Npcodes1" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nicolepayneswe/"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a href="mailto:nicole1rock@gmail.com"
+                ><i class="fa-solid fa-envelope"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+        <div class="back-to-top">
+          <a href="#"><i class="fa-solid fa-circle-arrow-up"></i></a>
+        </div>
+        <div class="copyright-wrapper">
+          <span id="copyright"></span>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
