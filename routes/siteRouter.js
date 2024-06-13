@@ -50,7 +50,7 @@ router.get("/forgot-login", forgotLogin);
 router.put("/forgot-login/edit-password/:_email", changePassword);
 
 //Local login
-router.get(
+router.post(
   "/login/local",
   passport.authenticate("local", {
     failureRedirect: "/login/local/failed",
