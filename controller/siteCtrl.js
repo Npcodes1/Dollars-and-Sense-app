@@ -2,7 +2,7 @@
 const bcrypt = require("bcryptjs");
 
 //import User Model
-const User = require("../model/userModel.js");
+const User = require("../model/userModel");
 
 //summon the model template for Get In Touch form
 const Send = require("../model/contactModel");
