@@ -2,30 +2,44 @@
 
 // To add current year to copyright.
 let currentYear = new Date().getFullYear();
-document.getElementById("copyright").innerHTML = `Copyright &copy; Nicole Payne ${currentYear}. All Rights Reserved.`;
+document.getElementById(
+  "copyright"
+).innerHTML = `Copyright &copy; Nicole Payne ${currentYear}. All Rights Reserved.`;
 
 //Pie Chart using chart.js
 const pieChart = document.querySelector("#pieChart");
 
 new Chart(pieChart, {
-    type: "pie",
-    data: {
-    labels: ["81% Caucasian", "7% Hispanic/Latinx", "7% Black/African American", "6% Asian/Pacific Islander", "6% Other" ],
-    datasets: [
-        {
-        label: "Demographic percentages for first-time home buyers",
-        backgroundColor: ["#e67e22", "#f1c40f", "#399B53", "#023B58", "#482728"],
-        data: [81, 7, 7, 6, 6]
-        }
+  type: "pie",
+  data: {
+    labels: [
+      "81% Caucasian",
+      "7% Hispanic/Latinx",
+      "7% Black/African American",
+      "6% Asian/Pacific Islander",
+      "6% Other",
     ],
-    }
+    datasets: [
+      {
+        label: "Demographic percentages for first-time home buyers",
+        backgroundColor: [
+          "#e67e22",
+          "#f1c40f",
+          "#399B53",
+          "#023B58",
+          "#482728",
+        ],
+        data: [81, 7, 7, 6, 6],
+      },
+    ],
+  },
 });
 
 //Quiz
 
 const inputAnswers = document.querySelectorAll(".answer");
 //selects all 6 radio inputs
-// console.log(inputAnswer, inputAnswer.length); 
+// console.log(inputAnswer, inputAnswer.length);
 
 //To keep score
 let score = 0;
@@ -81,7 +95,6 @@ const resetBtn = function () {
 
 clearBtn.addEventListener("click", resetBtn);
 
-
 //Financial Tracker
 let expenses = [];
 let totalAmount = 0;
@@ -93,7 +106,7 @@ const dateInput = document.querySelector("#date-input");
 
 const amountInput = document.querySelector("#amount-input");
 
-const noteInput = document.querySelector("#note-input")
+const noteInput = document.querySelector("#note-input");
 
 //To click the button
 const addTransaction = document.querySelector("#add-transaction");
@@ -110,7 +123,7 @@ const addExpense = () => {
   const amount = Number(amountInput.value);
   const note = noteInput.value;
 
-  expenses.push({ category, date, amount, note })
+  expenses.push({ category, date, amount, note });
 
   totalAmount += amount;
   totalAmountCell.innerHTML = totalAmount;
@@ -131,9 +144,9 @@ const addExpense = () => {
     totalAmount -= expense.amount;
     totalAmountCell.innerHTML = totalAmount;
     expenseTableBody.removeChild(newRow);
-  }
-  deleteBtn.addEventListener("click", deleteRow)
-}
+  };
+  deleteBtn.addEventListener("click", deleteRow);
+};
 
 addTransaction.addEventListener("click", addExpense);
 
@@ -143,31 +156,41 @@ dateCell.innerHTML = expense.date;
 amountCell.innerHTML = expense.amount;
 deleteCell.appendChild(deleteBtn);
 
-
 //For loop to Update expenses
 for (const expense of expenses) {
+  //To display total amount
   totalAmount += expense.amount;
   totalAmountCell.innerHTML = totalAmount;
-  
+
+  //create a new row
   const newRow = expenseTableBody.insertRow();
+
+  //create a new cell for category, date, amount, edit, and delete
   const categoryCell = newRow.insertCell();
   const dateCell = newRow.insertCell();
   const amountCell = newRow.insertCell();
+  const editCell = newRow.insertCell();
   const deleteCell = newRow.insertCell();
 
-  
-const deleteBtn = document.createElement("button");
-deleteBtn.innerHTML = "Delete";
-const deleteRow = () => {
-  expenses.splice(expenses.indexOf(expense));
-  totalAmount -= expense.amount;
-  totalAmountCell.innerHTML = totalAmount;
-  expenseTableBody.removeChild(newRow);
-}
-deleteBtn.addEventListener("click", deleteRow);
-categoryCell.innerHTML = expense.category;
-dateCell.innerHTML = expense.date;
-amountCell.innerHTML = expense.amount;
-deleteCell.appendChild(deleteBtn);
+  //to delete
+  const deleteBtn = document.createElement("button");
+  deleteBtn.innerHTML = "Delete";
 
+  //delete row and subtracting amount from total
+  const deleteRow = () => {
+    expenses.splice(expenses.indexOf(expense));
+    totalAmount -= expense.amount;
+    totalAmountCell.innerHTML = totalAmount;
+    expenseTableBody.removeChild(newRow);
+  };
+
+  //activate deleteRow when the delete button is clicked
+  deleteBtn.addEventListener("click", deleteRow);
+
+  //taking the expenses and subtracting 1
+  const expense = expenses[expenses.length - 1];
+  categoryCell.innerHTML = expense.category;
+  dateCell.innerHTML = expense.date;
+  amountCell.innerHTML = expense.amount;
+  deleteCell.appendChild(deleteBtn);
 }

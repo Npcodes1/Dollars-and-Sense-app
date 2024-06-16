@@ -1,8 +1,8 @@
 //Site Controller
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 //import User Model
-const User = require("../model/userModel");
+const User = require("../model/userModel.js");
 
 //summon the model template for Get In Touch form
 const Send = require("../model/contactModel");
@@ -134,9 +134,13 @@ const logOutRequest = (req, res, next) => {
 };
 
 // SignUp Request- creating a new user (permission for both user and admin)
-const signupRequest = (req, res, next) => {
+const signupRequest = async (req, res, next) => {
   const { firstName, lastName, email, username, password } = req.body;
-  bcrypt.hash(password, 10, async (error, hashedPassword) => {
+
+  try {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const newUser = new User({
       firstName,
       lastName,
@@ -146,43 +150,40 @@ const signupRequest = (req, res, next) => {
       googleId: "",
     });
 
-    try {
-      await newUser.save();
-      req.login(newUser, (err) => {
-        if (err) {
-          res.status(400).json({
-            error: {
-              message:
-                "There was a problem while signing up. Please try again!",
-            },
-            statusCode: 400,
-          });
-        }
-      });
-
-      res.status(201).json({
-        success: { message: "New user has been created." },
-        data: { firstName, lastName, email, username },
-        statusCode: 201,
-      });
-
-      //to catch attempts on creating duplicate accounts with same username
-    } catch (err) {
-      if (err.code === 11000 && err.keyPattern.username) {
+    await newUser.save();
+    req.login(newUser, (err) => {
+      if (err) {
         res.status(400).json({
           error: {
-            message: "Username already exists. Please enter another username.",
+            message: "There was a problem while signing up. Please try again!",
           },
           statusCode: 400,
         });
-      } else {
-        res.status(500).json({
-          error: { message: "Internal server error." },
-          statusCode: 500,
-        });
       }
+    });
+
+    res.status(201).json({
+      success: { message: "New user has been created." },
+      data: { firstName, lastName, email, username },
+      statusCode: 201,
+    });
+
+    //to catch attempts on creating duplicate accounts with same username
+  } catch (err) {
+    if (err.code === 11000 && err.keyPattern.username) {
+      res.status(400).json({
+        error: {
+          message: "Username already exists. Please enter another username.",
+        },
+        statusCode: 400,
+      });
+    } else {
+      res.status(500).json({
+        error: { message: "Internal server error." },
+        statusCode: 500,
+      });
     }
-  });
+  }
 };
 
 //to get to forgot-login page

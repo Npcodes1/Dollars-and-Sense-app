@@ -32,6 +32,7 @@ const createEntry = async (req, res, next) => {
       success: {
         message: "You've successfully created an entry on the page",
       },
+      data: newEntry,
       statusCode: 201,
     });
   } catch (error) {

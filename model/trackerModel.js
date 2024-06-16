@@ -7,17 +7,6 @@ const { Schema } = mongoose;
 const trackerSchema = new Schema({
   category: {
     type: String,
-    enum: [
-      "Income",
-      "Mortgage/Rent",
-      "Utilities",
-      "Insurance",
-      "Food/Drinks",
-      "Transportation",
-      "Health/Wellness",
-      "Entertainment",
-      "Miscellaneous",
-    ],
     required: [true, "A category is required."],
   },
 
@@ -35,6 +24,7 @@ const trackerSchema = new Schema({
   note: {
     type: String,
     minLength: [2, "The minimum number of characters is two."],
+    required: [true, "A note is required"],
   },
 });
 

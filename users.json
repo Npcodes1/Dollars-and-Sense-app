@@ -1,0 +1,4 @@
+{"_id":{"$oid":"6649f7cb388e77f727117b7b"},"firstName":"Mickey","lastName":"Mouse","email":"mickey.mouse@gmail.com","username":"MM12345","password":"hashBrowns"}
+{"_id":{"$oid":"6649f8b4388e77f727117b7c"},"firstName":"Nicole","lastName":"Payne","email":"np123@gmail.com","username":"np123","password":"hashyHashBrowns"}
+{"_id":{"$oid":"6649f8b4388e77f727117b7d"},"firstName":"Tommy","lastName":"Pickles","email":"tp123@gmail.com","username":"TP123","password":"hashierHashBrowns"}
+{"_id":{"$oid":"6649f8b4388e77f727117b7e"},"firstName":"Susie","lastName":"Carmichael","email":"sc123@gmail.com","password":"hashiestHashbrowns"}

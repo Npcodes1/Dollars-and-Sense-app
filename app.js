@@ -11,7 +11,7 @@ const helmet = require("helmet");
 const session = require("express-session");
 const passport = require("passport");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 //Declare routing variables
 const siteRoutes = require("./routes/siteRouter");

@@ -28,7 +28,7 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: [true, "A username is required."],
-    minLength: [8, "The minimum number of characters is eight."],
+    minLength: [4, "The minimum number of characters is four."],
     unique: true,
   },
 
@@ -49,7 +49,6 @@ const userSchema = new Schema({
 
   strategy: {
     type: String,
-    required: true,
   },
 });
 
