@@ -53,8 +53,9 @@ router.put("/forgot-login/edit-password/:_email", changePassword);
 router.post(
   "/login/local",
   passport.authenticate("local", {
-    failureRedirect: "/login/local/failed",
+    failureRedirect: "/",
   }),
+  // console.log("Success!")
   (req, res, next) => {
     res.status(200).json({
       success: { message: "User logged in." },

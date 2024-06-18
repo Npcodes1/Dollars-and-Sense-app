@@ -10,7 +10,7 @@ const User = require("../model/userModel");
 passport.use(
   new LocalStrategy(
     (verify = (username, password, done) => {
-      User.findOne({ username: username })
+      User.findOne({ user: username })
         .then((user) => {
           if (!user) {
             return done(null, false, { message: "User not found." });
