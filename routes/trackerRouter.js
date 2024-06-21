@@ -20,7 +20,7 @@ router.get("/tracker", financialTracker);
 router.post("/tracker/entry/create", createEntry);
 
 //User is able to update entry into tracker
-router.put("/tracker/entry/edit", updateEntry);
+router.put("/tracker/entry/edit/:_id", updateEntry);
 
 //User is able to delete entry from tracker
 router.delete("/tracker/entry/delete", deleteEntry);

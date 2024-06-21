@@ -2,25 +2,31 @@
 // const messageData = [{
 //     firstName: "",
 //     lastName: "",
+//     email: "",
 //     message: ""
 // }];
 
-const messageData = [{
+const messageData = [
+  {
     firstName: "Nicole",
     lastName: "Payne",
-    message: "Am I doing this right?"
-}, 
+    email: "np123@gmail.com",
+    message: "Am I doing this right?",
+  },
 
-{
+  {
     firstName: "Tommy",
     lastName: "Pickles",
-    message: "A baby's got to do what a baby's got to do!"
-}, 
+    email: "tp123@gmail.com",
+    message: "A baby's got to do what a baby's got to do!",
+  },
 
-{
+  {
     firstName: "Susie",
     lastName: "Carmichael",
-    message: "That's the final nail in the coffee!"
-}];
+    email: "sc123@gmail.com",
+    message: "That's the final nail in the coffee!",
+  },
+];
 
 module.exports = messageData;

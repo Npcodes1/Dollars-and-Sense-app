@@ -61,8 +61,6 @@ router.post(
       success: { message: "User logged in." },
       data: {
         username: req.user.username,
-        firstName: req.user.firstName,
-        lastName: req.user.lastName,
       },
       statusCode: 200,
     });
