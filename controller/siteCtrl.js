@@ -99,11 +99,11 @@ const profile = async (req, res, next) => {
 
 //check login
 const login = async (req, res, next) => {
-  console.log(req.user);
+  console.log(req.username);
   res.status(200).json({
     success: { message: "User logged in." },
     data: {
-      username: req.user.username,
+      username: req.username,
     },
     statusCode: 200,
   });
